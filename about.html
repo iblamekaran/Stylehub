@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — StyleHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="index.html" class="logo">StyleHub</a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html#catalog">Catalog</a>
+        <a href="about.html">About</a>
+        <a href="account.html">Account</a>
+        <a href="checkout.html">Checkout</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="account.html" class="account-status" id="accountStatus">Log in</a>
+        <button class="header-logout hidden" id="headerLogout" type="button">Log out</button>
+        <button class="cart-toggle" id="cartToggle" aria-haspopup="true" aria-expanded="false" aria-controls="cartDrawer">
+          Bag
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+  <section class="about" id="about">
+    <div class="wrap about-inner">
+      <h2>Made to last a few seasons longer</h2>
+      <p>Every piece is stitched from mid-weight cotton and finished by hand.
+        We keep the catalog small on purpose — fewer, better pieces, restocked
+        rather than replaced.</p>
+    </div>
+  </section>
+
+
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping bag">
+    <div class="cart-drawer-head">
+      <h3>Your bag</h3>
+      <button class="cart-close" id="cartClose" aria-label="Close bag">&times;</button>
+    </div>
+    <ul class="cart-items" id="cartItems">
+      <li class="empty-msg">Your bag is empty.</li>
+    </ul>
+    <div class="cart-drawer-foot">
+      <div class="cart-total-row">
+        <span>Total</span>
+        <span id="cartTotal">₹0</span>
+      </div>
+      <a href="checkout.html" class="btn btn-primary btn-block" id="goToCheckout">Go to checkout</a>
+    </div>
+  </aside>
+
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span>StyleHub</span>
+      <span>Front End Engineering-II · Project Evaluation-I</span>
+    </div>
+  </footer>
+
+  <script type="module" src="./script.js"></script>
+</body>
+</html>

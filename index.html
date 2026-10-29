@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StyleHub — Clothes Ordering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="index.html" class="logo">StyleHub</a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html#catalog">Catalog</a>
+        <a href="about.html">About</a>
+        <a href="account.html">Account</a>
+        <a href="checkout.html">Checkout</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="account.html" class="account-status" id="accountStatus">Log in</a>
+        <button class="header-logout hidden" id="headerLogout" type="button">Log out</button>
+        <button class="cart-toggle" id="cartToggle" aria-haspopup="true" aria-expanded="false" aria-controls="cartDrawer">
+          Bag
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+  <section class="hero" id="top">
+    <div class="wrap hero-inner">
+      <p class="hero-kicker">STYLE, WITH INTENTION</p>
+      <h1>Clothes cut for<br>how you actually move.</h1>
+      <p class="hero-sub">A small, considered wardrobe. Order online, delivered to your door.</p>
+      <a href="index.html#catalog" class="btn btn-primary">Shop the catalog</a>
+      <p class="hero-note">Thoughtfully made. Made to be worn.</p>
+    </div>
+  </section>
+
+
+  <section class="catalog" id="catalog">
+    <div class="wrap">
+      <div class="catalog-heading">
+        <div>
+          <p class="eyebrow">THE CONSIDERED EDIT</p>
+          <h2 class="section-title">Pieces to live in.</h2>
+        </div>
+        <p class="catalog-note">Fewer, better things. Designed to find their way into your everyday.</p>
+      </div>
+      <div class="product-grid" id="productGrid" aria-live="polite"></div>
+    </div>
+  </section>
+
+
+  <div class="product-modal-overlay" id="productModalOverlay"></div>
+  <div class="product-modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalProductName">
+    <button class="modal-close" id="modalClose" aria-label="Close product details">&times;</button>
+    <div class="modal-grid">
+
+      <div class="modal-gallery">
+        <img class="modal-main-image" id="modalMainImage" src="" alt="">
+        <div class="modal-thumbs" id="modalThumbs"></div>
+      </div>
+
+      <div class="modal-info">
+        <h3 id="modalProductName"></h3>
+        <p class="modal-meta" id="modalMeta"></p>
+
+        <div class="modal-rating" id="modalRating"></div>
+
+        <p class="modal-price" id="modalPrice"></p>
+
+        <div class="modal-actions">
+          <input type="number" class="qty-input" id="modalQty" min="1" value="1" aria-label="Quantity">
+          <button class="btn btn-primary" id="modalAddBtn">Add to bag</button>
+        </div>
+
+        <div class="modal-reviews">
+          <h4>Reviews</h4>
+          <ul class="review-list" id="reviewList"></ul>
+
+          <form id="reviewForm" class="review-form">
+            <div class="field">
+              <label for="reviewName">Your name</label>
+              <input type="text" id="reviewName" required>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="reviewRating">Rating</label>
+                <select id="reviewRating" required>
+                  <option value="5">5 — Excellent</option>
+                  <option value="4">4 — Good</option>
+                  <option value="3">3 — Okay</option>
+                  <option value="2">2 — Poor</option>
+                  <option value="1">1 — Bad</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="reviewComment">Your review</label>
+              <textarea id="reviewComment" rows="2" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-outline btn-block">Submit review</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping bag">
+    <div class="cart-drawer-head">
+      <h3>Your bag</h3>
+      <button class="cart-close" id="cartClose" aria-label="Close bag">&times;</button>
+    </div>
+    <ul class="cart-items" id="cartItems">
+      <li class="empty-msg">Your bag is empty.</li>
+    </ul>
+    <div class="cart-drawer-foot">
+      <div class="cart-total-row">
+        <span>Total</span>
+        <span id="cartTotal">₹0</span>
+      </div>
+      <a href="checkout.html" class="btn btn-primary btn-block" id="goToCheckout">Go to checkout</a>
+    </div>
+  </aside>
+
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span>StyleHub</span>
+      <span>Front End Engineering-II · Project Evaluation-I</span>
+    </div>
+  </footer>
+
+  <script type="module" src="./catalog.jsx"></script>
+</body>
+</html>

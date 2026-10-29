@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — StyleHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="index.html" class="logo">StyleHub</a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html#catalog">Catalog</a>
+        <a href="about.html">About</a>
+        <a href="account.html">Account</a>
+        <a href="checkout.html">Checkout</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="account.html" class="account-status" id="accountStatus">Log in</a>
+        <button class="header-logout hidden" id="headerLogout" type="button">Log out</button>
+        <button class="cart-toggle" id="cartToggle" aria-haspopup="true" aria-expanded="false" aria-controls="cartDrawer">
+          Bag
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+  <section class="checkout" id="checkout">
+    <div class="wrap checkout-inner">
+      <h2 class="section-title">Checkout</h2>
+
+      <ol class="checkout-steps">
+        <li>Review your bag</li>
+        <li>Enter delivery details</li>
+        <li>Place your order</li>
+      </ol>
+
+      <div class="checkout-grid">
+
+        <div class="order-summary" id="orderSummary" aria-live="polite">
+          <h3>Your bag</h3>
+          <ul class="summary-list" id="summaryList">
+            <li class="empty-msg">Your bag is empty. Add something from the catalog.</li>
+          </ul>
+          <div class="summary-total">
+            <span>Total</span>
+            <span id="summaryTotal">₹0</span>
+          </div>
+        </div>
+
+        <form id="checkoutForm" class="checkout-form" novalidate>
+          <h3>Delivery details</h3>
+
+          <div class="field">
+            <label for="fullName">Full name</label>
+            <input type="text" id="fullName" name="fullName" required autocomplete="name">
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" required autocomplete="tel"
+                   pattern="[0-9]{10}" placeholder="10-digit number">
+          </div>
+
+          <div class="field">
+            <label for="address">Delivery address</label>
+            <textarea id="address" name="address" rows="3" required autocomplete="street-address"></textarea>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="city">City</label>
+              <input type="text" id="city" name="city" required autocomplete="address-level2">
+            </div>
+            <div class="field">
+              <label for="pincode">Pincode</label>
+              <input type="text" id="pincode" name="pincode" required
+                     pattern="[0-9]{6}" placeholder="6-digit code">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="payment">Payment method</label>
+            <select id="payment" name="payment" required>
+              <option value="">Choose an option</option>
+              <option value="cod">Cash on delivery</option>
+              <option value="upi">UPI</option>
+              <option value="card">Card</option>
+              <option value="wallet">StyleHub wallet</option>
+            </select>
+            <p class="field-hint" id="walletHint"></p>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" id="placeOrderBtn">
+            Place order
+          </button>
+
+          <p class="form-status" id="formStatus" role="status"></p>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping bag">
+    <div class="cart-drawer-head">
+      <h3>Your bag</h3>
+      <button class="cart-close" id="cartClose" aria-label="Close bag">&times;</button>
+    </div>
+    <ul class="cart-items" id="cartItems">
+      <li class="empty-msg">Your bag is empty.</li>
+    </ul>
+    <div class="cart-drawer-foot">
+      <div class="cart-total-row">
+        <span>Total</span>
+        <span id="cartTotal">₹0</span>
+      </div>
+      <a href="checkout.html" class="btn btn-primary btn-block" id="goToCheckout">Go to checkout</a>
+    </div>
+  </aside>
+
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span>StyleHub</span>
+      <span>Front End Engineering-II · Project Evaluation-I</span>
+    </div>
+  </footer>
+
+  <script type="module" src="./script.js"></script>
+</body>
+</html>
